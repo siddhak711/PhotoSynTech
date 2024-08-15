@@ -3,22 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>PhotoSynTech</title>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.1/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
 </head>
-<body>
-    <header>
-        <h1>Welcome to My Website</h1>
-    </header>
-    <main>
-        <section>
-            <h2>About</h2>
-            <p>This is a simple website coded with HTML, CSS, and JavaScript.</p>
+<body class="bg-gray-100 text-gray-900 font-exo">
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md fixed w-full z-10 top-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Left: Brand Name -->
+                <div class="flex-shrink-0">
+                    <a href="#" class="text-2xl font-bold">PhotoSynTech</a>
+                </div>
+    
+                <!-- Right: Navbar Links -->
+                <div class="flex-grow flex justify-end space-x-8">
+                    <a href="#mission" class="text-gray-900 hover:text-gray-700 hover:scale-125 transform transition-transform duration-300">Mission</a>
+                    <a href="#problem" class="text-gray-900 hover:text-gray-700 hover:scale-125 transform transition-transform duration-300">Problem</a>
+                    <a href="#solution" class="text-gray-900 hover:text-gray-700 hover:scale-125 transform transition-transform duration-300">Solution</a>
+                    <a href="#about" class="text-gray-900 hover:text-gray-700 hover:scale-125 transform transition-transform duration-300">About Us</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Page Content -->
+    <div class="pt-24"> <!-- Add padding to prevent content from hiding behind the navbar -->
+        <section id="mission" class="h-screen bg-blue-100 flex items-center justify-center">
+            <h1 class="text-4xl font-bold">Mission Section</h1>
         </section>
-    </main>
-    <footer>
-        <p>&copy; 2024 My Website</p>
-    </footer>
-    <script src="js/scripts.js"></script>
+        <section id="problem" class="h-screen bg-green-100 flex items-center justify-center">
+            <h1 class="text-4xl font-bold">Problem Section</h1>
+        </section>
+        <section id="solution" class="h-screen bg-yellow-100 flex items-center justify-center">
+            <h1 class="text-4xl font-bold">Solution Section</h1>
+        </section>
+        <section id="about" class="h-screen bg-red-100 flex items-center justify-center">
+            <h1 class="text-4xl font-bold">About Us Section</h1>
+        </section>
+    </div>
+
 </body>
 </html>
