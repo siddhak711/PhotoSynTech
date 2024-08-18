@@ -7,48 +7,338 @@
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.1/dist/tailwind.min.css" rel="stylesheet">
     <style>
-        html {
-            scroll-behavior: smooth;
+      header {
+          background-color: white;
+          font-family: "Exo 2", sans-serif;
+          background-opacity: 0.75;
+          backdrop-blur: 10px;
+          border-radius: 1rem;
+      }
+      .sponsors {
+        position: relative;
+        text-align: center;
+        color: white;
+      }
+      .image-container {
+          width: 100%;
+          height: auto;
+      }
+      .image-container img {
+          width: 100%;
+          height: auto;
+          object-fit: contain;
+          opacity: 0.25;
+      }
+      .containero {
+          transition: transform 0.3s ease-in-out;
+      }
+      .containero:hover {
+          transform: scale(1.1);
+      }
+      .title {
+        font-family: "Exo 2", sans-serif;
+      }
+      body {
+        font-family: "Exo 2", sans-serif;
+      }
+      .pages {
+          transition: transform 0.3s ease-in-out;
+      }
+      .pages:hover {
+          transform: scale(1.1);
+          color: #3e7041;
+      }
+      html {
+           scroll-behavior: smooth;
+      }
+      h1 {
+           text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+      }
+
+        .story-step {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 40px 0;
         }
+
+        .story-step.active {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            transition: all 0.8s ease, transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+            filter: drop-shadow(0 4px 15px rgba(0, 0, 0, 0.1));
+        }
+
+        .story-text {
+            flex: 1;
+            padding: 0 2rem;
+            transition: all 0.8s ease, transform 0.5s ease-in-out;
+            transform: scale(0.85);
+        }
+
+        .story-step.active .story-text {
+            transform: scale(1);
+        }
+        .story-step .content-wrapper {
+            flex: 1;
+            padding: 0 20px;
+        }
+
+        .story-step img {
+            flex: 1;
+            max-width: 100%;
+            height: auto;
+            padding: 0 20px;
+        }
+
+        .story-image {
+            flex: 1;
+            padding: 0 2rem;
+            text-align: center;
+            transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+            transform: scale(0.85);
+        }
+
+        .story-step.active .story-image {
+            transform: scale(1);
+        }
+
+        .final-image img {
+            transition: transform 1s ease-in-out;
+        }
+
+        .final-image:hover img {
+            transform: scale(1.05);
+        }
+
+      .final-image::before {
+          content: '';
+          position: absolute;
+          top: -2rem;
+          left: -2rem;
+          right: -2rem;
+          bottom: -2rem;
+          border: 4px solid #3b8539;
+          z-index: -1;
+        }
+        /* Vertical line and bead style */
+        .vertical-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            width: 4px;
+            height: 100%;
+            background-color: #3b8539;
+            z-index: 0;
+            transform: translateX(-50%);
+        }
+
+        .bead {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background-color: #3b8539;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+
+        .section-wrapper {
+            position: relative;
+            padding: 80px 0;
+        }
+        #mission {
+            border-bottom: none; /* or remove this if it exists */
+        }
+
+
     </style>
 </head>
 <body class="bg-gray-100 text-gray-900 font-exo">
 
     <!-- Navbar -->
-    <nav class="bg-white shadow-md fixed w-full z-10 top-0">
+    <nav class="bg-white shadow-md fixed w-full z-20 top-0">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <!-- Left: Brand Name -->
                 <div class="flex-shrink-0">
-                    <a href="#" class="text-2xl font-bold">PhotoSynTech</a>
+                    <a href="#" class="text-2xl font-bold" style="color: #3b8539;">PhotoSynTech</a>
                 </div>
     
                 <!-- Right: Navbar Links -->
                 <div class="flex-grow flex justify-end space-x-8">
-                    <a href="#mission" class="text-gray-900 hover:text-gray-700 hover:scale-125 transform transition-transform duration-300">Mission</a>
-                    <a href="#problem" class="text-gray-900 hover:text-gray-700 hover:scale-125 transform transition-transform duration-300">Problem</a>
-                    <a href="#solution" class="text-gray-900 hover:text-gray-700 hover:scale-125 transform transition-transform duration-300">Solution</a>
-                    <a href="#about" class="text-gray-900 hover:text-gray-700 hover:scale-125 transform transition-transform duration-300">About Us</a>
+                    <a href="#mission" class="hover:scale-125 transform transition-transform duration-300"style="color: #3b8539;">Mission</a>
+                    <a href="#problem" class="hover:scale-125 transform transition-transform duration-300"style="color: #3b8539;">Problem</a>
+                    <a href="#solution" class="hover:scale-125 transform transition-transform duration-300"style="color: #3b8539;">Solution</a>
+                    <a href="#about" class="hover:scale-125 transform transition-transform duration-300"style="color: #3b8539;">About Us</a>
                 </div>
             </div>
         </div>
     </nav>
-    
+
     <!-- Page Content -->
-    <div class="pt-24"> <!-- Add padding to prevent content from hiding behind the navbar -->
-        <section id="mission" class="h-screen bg-blue-100 flex items-center justify-center">
-            <h1 class="text-4xl font-bold">Mission Section</h1>
+    <div class="pt-24 text-center">
+        <section id="motto" class="h-screen flex items-start justify-center pt-60 z-10 relative">
+            <h1 class="lg:text-8xl text-5xl font-extrabold" style="color: #3b8539;">Rooted in Nature,<br>Charged for Tomorrow.</h1>
         </section>
-        <section id="problem" class="h-screen bg-green-100 flex items-center justify-center">
-            <h1 class="text-4xl font-bold">Problem Section</h1>
+
+        <section id="mission" class="bg-gray-100 py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-gray-900">
+                <!-- Section Title -->
+                <h2 class="text-6xl font-bold text-center mb-12" style="color: #3b8539;">Our Mission</h2>
+                <hr class="border-t-2 border-gray-300 mb-12">
+
+                <!-- Mission Content: Image and Statement -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <!-- Image -->
+                    <div class="flex justify-center">
+                        <img src="images/mission_visual.webp" alt="Sustainable Energy" class="rounded-lg shadow-md w-full h-auto">
+                    </div>
+        
+                    <!-- Mission Statement -->
+                    <div class="text-2xl leading-relaxed text-left">
+                        <p>We aim to harness the untapped energy of plants to create sustainable, accessible electricity solutions for communities worldwide. By merging nature and technology, we aim to empower a greener future, reduce environmental impact, and bring reliable energy to those in need.</p>
+                    </div>
+                </div>
+
+                <div class="flex justify-center mt-12">
+                    <div class="text-3xl font-semibold text-center text-white py-4 px-6 rounded-lg shadow-md" style="background-color: #3b8539;">
+                        "Rooted in Nature, Charged for Tomorrow."
+                    </div>
+                </div>
+            </div>
         </section>
-        <section id="solution" class="h-screen bg-yellow-100 flex items-center justify-center">
-            <h1 class="text-4xl font-bold">Solution Section</h1>
+
+        <section id="problem" class="bg-gray-100 py-32">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-6xl font-bold text-center mb-12" style="color: #3b8539;">The Problem</h2>
+                <hr class="border-t-2 border-gray-300 mb-12">
+        
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="col-span-1">
+                        <div class="text-2xl text-gray-700 space-y-6 text-left">
+                            <p>The world faces a critical challenge in addressing the growing demand for energy while minimizing environmental impact. Traditional energy sources like fossil fuels are depleting rapidly, contributing to climate change and pollution.</p>
+                            <p>Millions of people still lack access to reliable and sustainable energy. Current renewable energy technologies, while promising, struggle with integration and efficiency, highlighting the need for innovative solutions.</p>
+                            <p>This research aims to explore the untapped potential of plants as a sustainable and accessible energy source, offering a transformative approach to addressing the global energy crisis.</p>
+                        </div>
+                    </div>
+        
+                    <div class="col-span-1 flex justify-center">
+                        <img src="images/problem_visual.webp" alt="Global Energy Challenge" class="rounded-lg shadow-md w-full h-auto">
+                    </div>
+                </div>
+            </div>
         </section>
+        
+        <!-- Solution Section -->
+        <section id="solution" class="story-section">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Section Title -->
+                <h2 class="text-6xl font-bold text-center mb-12 headline" style="color: #3b8539;">The Solution</h2>
+                <hr class="border-t-2 border-gray-300 mb-12">
+
+                <!-- Story Step 1 -->
+                <div class="section-wrapper">
+                    <!-- Vertical Line -->
+                    <div class="vertical-line"></div>
+
+                    <div class="story-step active" id="step1">
+                        <div class="story-text text-left">
+                            <h3 class="text-3xl font-semibold mb-4 headline">Harnessing Plant Energy</h3>
+                            <p class="text-lg text-gray-700">Our innovative system leverages the natural process of photosynthesis to generate electricity. By utilizing the byproducts of photosynthesis, specifically the organic matter released into the soil, our technology harnesses these electrons to produce a sustainable energy source. This cutting-edge solution taps into the untapped potential of plant energy, offering a clean and accessible alternative to traditional power sources.
+                        </div>
+                        <div class="story-image">
+                            <img src="images/story1.png" alt="Harnessing Plant Energy">
+                        </div>
+                    </div>
+                    <div class="bead" style="top: 50%;"></div> <!-- Bead at the center -->
+                </div>
+
+                <!-- Story Step 2 -->
+                <div class="section-wrapper">
+                    <!-- Vertical Line -->
+                    <div class="vertical-line"></div>
+
+                    <div class="story-step active" id="step2">
+                        <div class="story-image">
+                            <img src="images/story2.webp" alt="Empowering Communities with Localized Energy Solutions">
+                        </div>
+                        <div class="story-text text-left">
+                            <h3 class="text-3xl font-semibold mb-4 headline">Empowering Communities with Localized Energy Solutions</h3>
+                            <p class="text-lg text-gray-700">Our solution isn't just about generating energy; it's about empowering communities. By enabling localized energy production directly from plants, we eliminate the dependency on large-scale energy infrastructure. This autonomy allows communities, especially those in rural and remote areas, to have consistent access to electricity, fostering education, healthcare, and economic growth. It brings power closer to the people who need it the most, transforming lives by providing the tools for development and self-sufficiency.</p>
+                        </div>
+                    </div>
+                    <div class="bead" style="top: 50%;"></div> <!-- Bead at the center -->
+                </div>
+
+                <!-- Story Step 3 -->
+                <div class="section-wrapper">
+                    <!-- Vertical Line -->
+                    <div class="vertical-line"></div>
+
+                    <div class="story-step active" id="step3">
+                        <div class="story-text text-left">
+                            <h3 class="text-3xl font-semibold mb-4 headline">Transforming Energy Consumption</h3>
+                            <p class="text-lg text-gray-700">Plant energy not only serves as a renewable source but also as a catalyst for a greener future. By integrating our technology into existing infrastructure, we can significantly reduce the carbon footprint associated with energy production. This shift to plant-based electricity supports global efforts to combat climate change while promoting the growth of local ecosystems.</p>
+                        </div>
+                        <div class="story-image">
+                            <img src="images/story3.png" alt="Transforming Energy Consumption">
+                        </div>
+                    </div>
+                    <div class="bead" style="top: 50%;"></div> <!-- Bead at the center -->
+                </div>
+
+                <!-- Story Step 4 -->
+                <div class="section-wrapper">
+                    <!-- Vertical Line -->
+                    <div class="vertical-line"></div>
+
+                    <div class="story-step active" id="step4">
+                        <div class="story-image">
+                            <img src="images/story4.webp" alt="Scalable and Cost-Effective Innovation">
+                        </div>
+                        <div class="story-text text-left">
+                            <h3 class="text-3xl font-semibold mb-4 headline">Scalable and Cost-Effective Innovation</h3>
+                            <p class="text-lg text-gray-700">Our system is designed with scalability in mind. Whether implemented in small gardens or large agricultural settings, our technology can be scaled to meet the energy needs of different environments. This flexibility, combined with low production costs, makes it an ideal solution for a wide range of applications. By reducing the financial barriers to entry, we are making sustainable energy accessible to more people around the world, paving the way for a cleaner and more equitable energy future.</p>
+                        </div>
+                    </div>
+                    <div class="bead" style="top: 50%;"></div> <!-- Bead at the center -->
+                </div>
+
+                <!-- Final Image -->
+                <div class="final-image mt-12">
+                    <img src="images/solution_diagram.jpg" alt="Final Solution Diagram" class="rounded-lg shadow-md">
+                </div>
+            </div>
+        </section>
+
+
         <section id="about" class="h-screen bg-red-100 flex items-center justify-center">
             <h1 class="text-4xl font-bold">About Us Section</h1>
         </section>
     </div>
+
+    <!-- JavaScript to handle animations and trigger visibility -->
+    <script>
+        const steps = document.querySelectorAll('.story-step');
+        const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            } else {
+                entry.target.classList.remove('active');
+            }
+        });
+            }, {
+        threshold: 0.3
+        });
+
+        steps.forEach(step => observer.observe(step));
+
+    </script>
 
 </body>
 </html>
