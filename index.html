@@ -29,6 +29,14 @@
           object-fit: contain;
           opacity: 0.25;
       }
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+      }
+
       .containero {
           transition: transform 0.3s ease-in-out;
       }
@@ -52,7 +60,7 @@
            scroll-behavior: smooth;
       }
       h1 {
-           text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+           text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
       }
 
         .story-step {
@@ -175,15 +183,37 @@
         button svg {
         cursor: pointer;
         }
-
-        @media (max-width: 639px) {
-        #navLinks {
-            display: none;
+        .title-border {
+            width: 50px; /* Adjust width as necessary */
+            margin: 0 auto; /* Center the border */
+            border-bottom: 2px solid #ccc; /* Change the color to your preference */
         }
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+                width: 100%;
+            }
 
-        button {
-            display: block;
-        }
+            .title-border {
+                width: 30px; /* Smaller width for smaller screens */
+            }
+
+            .text-content {
+                text-align: center;
+                padding: 0 10px; /* Add some padding for better readability */
+            }
+            
+            .image-content {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%; 
+            }
+            
+            .section-title {
+                font-size: 24px; /* Adjust title size for smaller screens */
+                margin-bottom: 10px;
+            }
         }
 
 
